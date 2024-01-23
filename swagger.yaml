@@ -8,7 +8,9 @@ servers:
 paths:
   /auth/login:
     post:
-      summary: Log In the user.
+      summary: Log In the user
+      tags:
+        - Users
       requestBody:
         required: true
         content:
@@ -42,6 +44,8 @@ paths:
   /books/bestrating:
     get:
       summary: Returns the first three higher grades books
+      tags:
+        - Books
       responses:
         '200':
           description: Returns an array of three books
@@ -89,6 +93,8 @@ paths:
   /books:
     get:
       summary: Returns all books
+      tags:
+        - Books
       responses:
         '200':
           description: Returns an array of all books
@@ -135,6 +141,8 @@ paths:
           description: Unexpected Error
     post:
      summary: Send a new Book
+     tags:
+        - Books
      security:
        - BearerAuth: []
 
@@ -187,6 +195,8 @@ paths:
   /books/{id}:
     put:
      summary: Modify a book depending on id
+     tags:
+        - Books
      security:
        - BearerAuth: []
      parameters:
@@ -207,6 +217,8 @@ paths:
          description: Unexpected Behaviour
     delete:
      summary: Delete a book depending on id
+     tags:
+        - Books
      security:
        - BearerAuth: []
      parameters:
@@ -236,3 +248,9 @@ securityDefinitions:
     type: JWT
     name: Authorization
     in: header
+
+tags:
+  - name: Users
+    description: Endpoints for Users
+  - name: Books
+    description: Endpoints for Books
