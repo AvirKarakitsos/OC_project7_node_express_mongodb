@@ -1,14 +1,24 @@
 const http = require('http');
 const app = require('./app');
+const mongoose = require('mongoose');
 require('dotenv').config();
+
+//Connection to mongoDB
+mongoose.connect(process.env.DB_CONNECTION,
+	{ 
+		useNewUrlParser: true,
+		useUnifiedTopology: true 
+	})
+	.then(() => console.log('Connexion à MongoDB réussie !'))
+	.catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const normalizePort = val => {
 	const port = parseInt(val, 10);
 
-	if (isNaN(port)) {
+	if(isNaN(port)) {
 		return val;
 	}
-	if (port >= 0) {
+	if(port >= 0) {
 		return port;
 	}
 	return false;

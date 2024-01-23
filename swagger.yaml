@@ -1,0 +1,238 @@
+openapi: 3.0.0
+info:
+  title: Mon Vieux Grimoire API
+  description: API Backend for Mon Vieux Grimoire Website
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api/
+paths:
+  /auth/login:
+    post:
+      summary: Log In the user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Connected
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: integer
+                    format: int64
+                    example: 1
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4
+        '404':
+          description: User not found
+        '401':
+          description: Not Authorized
+  /books/bestrating:
+    get:
+      summary: Returns the first three higher grades books
+      responses:
+        '200':
+          description: Returns an array of three books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    title:
+                      type: string
+                      example: "Fondation"
+                    author:
+                      type: string
+                      example: "Isaac Asimov"
+                    imageUrl:
+                      type: string
+                      example: "http://localhost:4000/images/1692019597980fondation.jpg"
+                    year:
+                      type: integer
+                      format: int64
+                      example: 1980
+                    genre:
+                      type: string
+                      example: "Science Fiction"
+                    ratings:
+                      type: integer
+                      format: int64
+                      example: 5
+                    averageRating:
+                      type: integer
+                      format: int64
+                      example: 4.5
+                    userId:
+                      type: integer
+                      format: int64
+                      example: 1
+        '500':
+          description: Unexpected Error
+  /books:
+    get:
+      summary: Returns all books
+      responses:
+        '200':
+          description: Returns an array of all books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    title:
+                      type: string
+                      example: "Fondation"
+                    author:
+                      type: string
+                      example: "Isaac Asimov"
+                    imageUrl:
+                      type: string
+                      example: "http://localhost:4000/images/1692019597980fondation.jpg"
+                    year:
+                      type: integer
+                      format: int64
+                      example: 1980
+                    genre:
+                      type: string
+                      example: "Science Fiction"
+                    ratings:
+                      type: integer
+                      format: int64
+                      example: 5
+                    averageRating:
+                      type: integer
+                      format: int64
+                      example: 4.5
+                    userId:
+                      type: integer
+                      format: int64
+                      example: 1
+        '500':
+          description: Unexpected Error
+    post:
+     summary: Send a new Book
+     security:
+       - BearerAuth: []
+
+     requestBody:
+       required: true
+       content:
+         multipart/form-data:
+           schema:
+             type: object
+             properties:
+              title:
+                type: string
+              image:
+                type: string
+                format: binary
+              year:
+                type: integer
+                format: int64
+              genre:
+                type: string
+     responses:
+       '201':
+         description: Created
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                  id:
+                    type: integer
+                    format: int64
+                  title:
+                    type: string
+                  imageUrl:
+                    type: string
+                  year:
+                    type: integer
+                    format: int64
+                  genre:
+                    type: string
+                  userId:
+                    type: integer
+                    format: int64
+       '500':
+         description: Unexpected Error
+       '401':
+         description: Unauthorized
+       '400':
+         description: Bad Request
+  /books/{id}:
+    put:
+     summary: Modify a book depending on id
+     security:
+       - BearerAuth: []
+     parameters:
+       - name: id
+         in: path
+         required: true
+         description: id of book to be modify
+         schema:
+           type: integer
+           format: int64
+           example: 1
+     responses:
+       '200':
+         description: Book Updated
+       '401':
+         description: Unauthorized
+       '500':
+         description: Unexpected Behaviour
+    delete:
+     summary: Delete a book depending on id
+     security:
+       - BearerAuth: []
+     parameters:
+       - name: id
+         in: path
+         required: true
+         description: id of book to be deleted
+         schema:
+           type: integer
+           format: int64
+           example: 1
+     responses:
+       '200':
+         description: Book Deleted
+       '401':
+         description: Unauthorized
+       '500':
+         description: Unexpected Behaviour
+
+components:
+  securitySchemes:
+   BearerAuth:
+     type: http
+     scheme: bearer
+securityDefinitions:
+  Bearer:
+    type: JWT
+    name: Authorization
+    in: header
