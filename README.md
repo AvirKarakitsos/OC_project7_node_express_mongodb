@@ -4,8 +4,9 @@ Projet Openclassrooms: création d'une API pour un site de notations de livres. 
 
 **Tags**: *Express, Mongoose, bcrypt, jsonwebtoken, multer, sharp*
 
-![Image](https://github.com/AvirKarakitsos/OC_project7_node_express_mongodb/blob/main/assets/project7.png?raw=true)
-
+<p align="center">
+  <img src="./assets/project7.png" alt="Illustration du site">
+</p>
 
 ## Installation
 
@@ -13,10 +14,6 @@ Projet Openclassrooms: création d'une API pour un site de notations de livres. 
 
 Afin d'installer toutes les librairies
 
-### `nodemon serve`
-
-Commande globale afin de lancer le serveur.  
-Penser à installer nodemon en dependance de développement avec la commande *npm install --save-dev nodemon*
 
 ### `mkdir images`
 
@@ -31,11 +28,16 @@ DB_CONNECTION *votre connection à mongoDB commençant par : "mongodb+srv://\[us
 RANDOM_TOKEN_SECRET *générer une clé secrète pour le token. Vous pouvez utiliser la commande sur node : require('crypto').randomBytes(64).toString("hex")*  
 TIME *temps d'expiration du token, exemple: "1h"*
 
+### `nodemon serve`
+
+Commande globale afin de lancer le serveur.  
+Penser à installer nodemon en dependance de développement avec la commande *npm install --save-dev nodemon*
+
 ## Tester l'API
 
 Deux solutions :
 
 Cloner la partie frontend du site [https://github.com/AvirKarakitsos/OC_project7_frontend_react](https://github.com/AvirKarakitsos/OC_project7_frontend_react)
 
-Utiliser la documentation OpenAPI en local *http://\[yourlocalhost]/api-docs 
+Utiliser la documentation OpenAPI en local *http://\[yourlocalhost]/api-docs* 
 
