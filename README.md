@@ -19,9 +19,9 @@ Afin d'installer toutes les librairies
 
 Créer un dossier *images* où seront stockées les images en local.
 
-### `mkdir .env`
+### `New-Item ".env"`
 
-Créer un fichier .env afin de stocker vos propres variables d'environnement.  
+Commande sur powershell. Créer un fichier .env afin de stocker vos propres variables d'environnement.  
 Vous aurez besoin de 4 variables nommées ainsi:  
 PORT *port 4000 par défaut*  
 DB_CONNECTION *votre connection à mongoDB commençant par : "mongodb+srv://\[username]:\[password]@cluster0...*  
