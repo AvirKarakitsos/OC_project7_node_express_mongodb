@@ -40,7 +40,7 @@ exports.createBook = async (req,res,next) => {
     delete bookObject.ratings;
     delete bookObject.averageRating;
 
-    //Resize the image if the height or the width are above 450px and store this image in the disk
+    //Resize the image if the height or the width are above 450px and store this image in the image folder
     if((metadata.height >= 450) || (metadata.width >= 450)) {
         if (metadata.height >= metadata.width) await image.resize(null,450).toFile(`./images/${nameComplete}`)
         else await image.resize(450,null).toFile(`./images/${nameComplete}`)
