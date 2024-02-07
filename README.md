@@ -4,7 +4,8 @@ Projet Openclassrooms: création d'une API pour un site de notations de livres. 
 
 **Tags**: *Express, Mongoose, bcrypt, jsonwebtoken, multer, sharp*
 
-![Image](https://github.com/AvirKarakitsos/OC_project7_node_express_mongodb/blob/main/public/assets/project7.png?raw=true)
+![Image](https://github.com/AvirKarakitsos/OC_project7_node_express_mongodb/blob/main/assets/project7.png?raw=true)
+
 
 ## Installation
 
@@ -14,8 +15,8 @@ Afin d'installer toutes les librairies
 
 ### `nodemon serve`
 
-Commande globale afin de lancer le serveur .
-Penser à installer nodemon en dependance de développement avce la commande *npm install --save-dev nodemon*
+Commande globale afin de lancer le serveur.  
+Penser à installer nodemon en dependance de développement avec la commande *npm install --save-dev nodemon*
 
 ### `mkdir images`
 
@@ -23,14 +24,14 @@ Créer un dossier *images* où seront stockées les images en local.
 
 ### `mkdir .env`
 
-Créer un fichier .env afin de stocker vos propres variables d'environnement.
-Vous aurez besoin de 4 variables nommées ainsi:
-PORT *port 4000 par défaut* 
-DB_CONNECTION *votre connection à mongoDB commençant par : "mongodb+srv://\[username]:\[password]@cluster0...*
-RANDOM_TOKEN_SECRET *générer une clé secrète pour le token. Vous pouvez utiliser la commande sur node : require('crypto').randomBytes(64).toString("hex")*
+Créer un fichier .env afin de stocker vos propres variables d'environnement.  
+Vous aurez besoin de 4 variables nommées ainsi:  
+PORT *port 4000 par défaut*  
+DB_CONNECTION *votre connection à mongoDB commençant par : "mongodb+srv://\[username]:\[password]@cluster0...*  
+RANDOM_TOKEN_SECRET *générer une clé secrète pour le token. Vous pouvez utiliser la commande sur node : require('crypto').randomBytes(64).toString("hex")*  
 TIME *temps d'expiration du token, exemple: "1h"*
 
-## Test l'API
+## Tester l'API
 
 Deux solutions :
 
