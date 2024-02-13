@@ -15,11 +15,11 @@ Projet Openclassrooms: création d'une API pour un site de notations de livres. 
 Afin d'installer toutes les librairies
 
 
-### `mkdir images`
+### `Créer un dossier images`
 
-Créer un dossier *images* où seront stockées les images en local.
+Créer un dossier *images* à la racine de votre répertoire où seront stockées les images en local.
 
-### `New-Item ".env"`
+### `Créer un fichier .env`
 
 Commande sur powershell. Créer un fichier .env afin de stocker vos propres variables d'environnement.  
 Vous aurez besoin de 4 variables nommées ainsi:  
