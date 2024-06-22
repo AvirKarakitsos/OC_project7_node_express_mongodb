@@ -1,6 +1,6 @@
 ## Description
 
-Projet Openclassrooms: création d'une API pour un site de notations de livres. Système d'enregistrement sécurisé d'utilisateur et d'authentification avec *jsonwebtoken* et bcrypt; opérations CRUD.
+Projet Openclassrooms: création d'une API REST pour un site de notations de livres. Système d'enregistrement sécurisé d'utilisateurs et d'authentification avec *jsonwebtoken* et *bcrypt*; opérations CRUD.
 
 **Tags**: *Express, Mongoose, bcrypt, jsonwebtoken, multer, sharp*
 
